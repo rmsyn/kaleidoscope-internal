@@ -39,7 +39,9 @@ impl<const ROWS: u8, const COLS: u8> MatrixAddr<ROWS, COLS> {
     pub const fn default() -> Self {
         Self::invariant();
 
-        Self { offset: ROWS * COLS }
+        Self {
+            offset: ROWS * COLS,
+        }
     }
 
     /// Creates a [MatrixAddr] from another [MatrixAddr].
@@ -116,13 +118,17 @@ impl<const ROWS: u8, const COLS: u8> MatrixAddr<ROWS, COLS> {
     }
 }
 
-impl<const R1: u8, const C1: u8, const R2: u8, const C2: u8> PartialEq<MatrixAddr<R2, C2>> for MatrixAddr<R1, C1> {
+impl<const R1: u8, const C1: u8, const R2: u8, const C2: u8> PartialEq<MatrixAddr<R2, C2>>
+    for MatrixAddr<R1, C1>
+{
     fn eq(&self, rhs: &MatrixAddr<R2, C2>) -> bool {
         self.offset == rhs.offset
     }
 }
 
-impl<const R1: u8, const C1: u8, const R2: u8, const C2: u8> PartialOrd<MatrixAddr<R2, C2>> for MatrixAddr<R1, C1> {
+impl<const R1: u8, const C1: u8, const R2: u8, const C2: u8> PartialOrd<MatrixAddr<R2, C2>>
+    for MatrixAddr<R1, C1>
+{
     fn partial_cmp(&self, rhs: &MatrixAddr<R2, C2>) -> Option<core::cmp::Ordering> {
         if self.row() == rhs.row() && self.col() == rhs.col() {
             Some(core::cmp::Ordering::Equal)

@@ -4,3 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+bitfield = "0.14"
+
+[dependencies.usbd-hid]
+# Switch to crates.io after next version release
+git = "https://github.com/twitchyliquid64/usbd-hid"
+version = "0.6"
