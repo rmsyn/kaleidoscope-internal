@@ -1,9 +1,9 @@
 #[cfg(feature = "atreus")]
 mod atreus;
-#[cfg(not(any(feature = "atreus", feature = "avr", feature = "atmega32u4")))]
+#[cfg(any(not(feature = "atreus"), not(feature = "atmega32u4"), not(feature = "avr")))]
 mod dummy;
 
 #[cfg(feature = "atreus")]
 pub use atreus::*;
-#[cfg(not(any(feature = "atreus", feature = "avr", feature = "atmega32u4")))]
+#[cfg(any(not(feature = "atreus"), not(feature = "atmega32u4"), not(feature = "avr")))]
 pub use dummy::*;

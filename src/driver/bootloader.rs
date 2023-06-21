@@ -1,4 +1,4 @@
-#[cfg(feature = "avr")]
+#[cfg(any(feature = "avr", feature = "atmega32u4"))]
 pub mod avr;
 
 pub trait Base {

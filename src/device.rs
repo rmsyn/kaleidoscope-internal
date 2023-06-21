@@ -1,7 +1,7 @@
-#[cfg(feature = "avr")]
+#[cfg(any(feature = "avr", feature = "atmega32u4"))]
 mod avr;
 
-#[cfg(feature = "avr")]
+#[cfg(any(feature = "avr", feature = "atmega32u4"))]
 pub use avr::*;
 
 pub mod key_indexes;
