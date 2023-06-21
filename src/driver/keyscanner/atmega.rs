@@ -1,4 +1,4 @@
-#[cfg(feature = "atreus")]
+#[cfg(any(feature = "atreus", feature = "atmega32u4"))]
 use crate::plugins::atreus::DeviceProps;
 
 use super::{DummyScanner, KeyScannerProps};

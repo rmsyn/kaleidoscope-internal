@@ -14,5 +14,5 @@ version = "0.6"
 
 [features]
 avr = []
-atmega32u4 = []
-atreus = ["atmega32u4", "avr"]
+atmega32u4 = ["avr"]
+atreus = ["atmega32u4"]
